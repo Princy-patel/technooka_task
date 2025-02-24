@@ -9,6 +9,8 @@ import {
 } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import Navbar from "../navbar";
+import FeesCreation from "../fees-creation";
+import FooterCom from "../footer";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -52,7 +54,11 @@ const Dashboard = () => {
       case "3":
         return <div>Program Content</div>;
       case "4":
-        return <div>Container Content</div>;
+        return (
+          <div>
+            <FeesCreation />
+          </div>
+        );
       default:
         return <div>Default Content</div>;
     }
@@ -83,7 +89,9 @@ const Dashboard = () => {
           </div>
         </Content>
 
-        <Footer className="text-center">Footer</Footer>
+        <Footer className="text-center">
+          <FooterCom />
+        </Footer>
       </Layout>
     </Layout>
   );
