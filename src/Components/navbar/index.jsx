@@ -20,7 +20,7 @@ function Navbar({ setCollapsed, collapsed }) {
           {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
         </div>
         <Input
-          className="w-full border-2 border-transparent focus:border-blue-500 focus:ring-2 focus:ring-blue-500 rounded-md p-2 bg-gray-100"
+          className="w-full border-2 border-transparent focus:border-[#1662A6] focus:ring-2 focus:ring-[#1662A6] rounded-md p-2 bg-gray-100"
           placeholder="Search..."
         />
       </div>

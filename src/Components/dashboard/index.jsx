@@ -1,38 +1,35 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  PlaySquareOutlined,
-  WeiboSquareOutlined,
-  FormOutlined,
-  ContainerOutlined,
-} from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import Navbar from "../navbar";
 import FeesCreation from "../fees-creation";
-import FooterCom from "../footer";
+import { MdDashboard } from "react-icons/md";
+import { AiFillWeiboSquare } from "react-icons/ai";
+import { FaChartColumn } from "react-icons/fa6";
+import { FaCreditCard } from "react-icons/fa6";
 
 const { Header, Content, Footer, Sider } = Layout;
 
 const items = [
   {
     key: "1",
-    icon: <PlaySquareOutlined />,
+    icon: <MdDashboard />,
     label: "Dashboard",
   },
   {
     key: "2",
-    icon: <WeiboSquareOutlined />,
+    icon: <AiFillWeiboSquare />,
     label: "BoS",
   },
   {
     key: "3",
-    icon: <FormOutlined />,
+    icon: <FaChartColumn />,
     label: "Program",
   },
   {
     key: "4",
-    icon: <ContainerOutlined />,
+    icon: <FaCreditCard />,
     label: "Fees Creation",
   },
 ];
@@ -75,6 +72,9 @@ const Dashboard = () => {
           selectedKeys={[selectedKey]}
           onSelect={handleMenuSelect}
           items={items}
+          style={{
+            color: "#0084CA",
+          }}
         />
       </Sider>
 
@@ -89,8 +89,8 @@ const Dashboard = () => {
           </div>
         </Content>
 
-        <Footer className="text-center">
-          <FooterCom />
+        <Footer className="text-center text-xs font-light text-[#979797]">
+          Copyright © 2024 CVM University All rights reserved.
         </Footer>
       </Layout>
     </Layout>

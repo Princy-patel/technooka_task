@@ -6,7 +6,7 @@ const FeesCreationForm = () => {
     <Form layout="vertical" className="bg-white rounded-lg">
       <Form.Item
         label={
-          <span className={`text-[#1662A6]`}>
+          <span className="text-[#1662A6] text-base font-normal">
             Name a Fees Creation
           </span>
         }
@@ -19,7 +19,9 @@ const FeesCreationForm = () => {
         <Col span={12}>
           <Form.Item
             label={
-              <span className="text-[#1662A6]">Program Level</span>
+              <span className="text-[#1662A6] text-base font-normal">
+                Program Level
+              </span>
             }
             name="programLevel"
           >
@@ -36,7 +38,9 @@ const FeesCreationForm = () => {
         <Col span={12}>
           <Form.Item
             label={
-              <span className="text-[#1662A6]">Program Type</span>
+              <span className="text-[#1662A6] text-base font-normal">
+                Program Type
+              </span>
             }
             name="programType"
           >
@@ -51,18 +55,26 @@ const FeesCreationForm = () => {
         </Col>
       </Row>
 
-      <Form.Item
-        label={<span className="text-[#1662A6]">Program Name</span>}
-        name="programName"
-      >
-        <Select
-          placeholder="Select"
-          options={[
-            { label: "Program 1", value: "program1" },
-            { label: "Program 2", value: "program2" },
-          ]}
-        ></Select>
-      </Form.Item>
+      <Row>
+        <Col span={12}>
+          <Form.Item
+            label={
+              <span className="text-[#1662A6] text-base font-normal">
+                Program Name
+              </span>
+            }
+            name="programName"
+          >
+            <Select
+              placeholder="Select"
+              options={[
+                { label: "Program 1", value: "program1" },
+                { label: "Program 2", value: "program2" },
+              ]}
+            ></Select>
+          </Form.Item>
+        </Col>
+      </Row>
     </Form>
   );
 };

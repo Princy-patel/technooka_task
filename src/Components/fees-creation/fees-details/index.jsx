@@ -1,21 +1,9 @@
 import React, { useState } from "react";
 import { Tabs, Select, Input, Table, Card } from "antd";
-
-const { Option } = Select;
+import FooterButton from "@/Components/FooterButtons";
 
 const FeesDetails = () => {
   const [activeTab, setActiveTab] = useState("1");
-
-  const columns = [
-    { title: "No", dataIndex: "no", key: "no", width: 50 },
-    { title: "Fees Name", dataIndex: "name", key: "name" },
-    {
-      title: "Fees Amount",
-      dataIndex: "amount",
-      key: "amount",
-      align: "right",
-    },
-  ];
 
   const data = [
     { key: "1", no: 1, name: "Tuition Fee", amount: "30,000" },
@@ -24,8 +12,8 @@ const FeesDetails = () => {
   ];
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold text-[#1662A6] mb-4">Fees Details</h2>
+    <div className="w-full pt-10">
+      <h2 className="text-2xl font-medium text-[#1662A6] mb-4">Fees Details</h2>
 
       <Tabs
         activeKey={activeTab}
@@ -36,20 +24,24 @@ const FeesDetails = () => {
           key: String(i + 1),
           label: (
             <span
-              className={`px-4 py-2 rounded-md ${
+              className={`px-4 py-2 font-bold text-2xl opacity-90 rounded-md ${
                 i == activeTab - 1
                   ? "bg-[#1662A6] text-white"
-                  : "text-[#1662A6]"
+                  : "text-[#1662A6] opacity-60"
               }`}
             >{`Sem ${i + 1}`}</span>
           ),
-          children: <div>Form for semester {i + 1}</div>,
+          children: (
+            <div className="text-base font-normal text-[#1662A6]">
+              Form for semester {i + 1}
+            </div>
+          ),
         }))}
       />
 
-      <div className="grid grid-cols-12 gap-6">
-        <div className="col-span-7 bg-white">
-          <label className="text-[#1662A6] my-2 block">
+      <div className="grid grid-cols-12 gap-14 w-full">
+        <div className="col-span-8 bg-white">
+          <label className="text-[#1662A6] my-2 block text-base font-normal">
             Select Fees Payment Templates
           </label>
           <Select
@@ -63,62 +55,110 @@ const FeesDetails = () => {
 
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="text-[#1662A6] my-2 block">Fees Name</label>
+              <label className="text-[#1662A6] my-4 block text-base font-normal">
+                Fees Name
+              </label>
               <Input placeholder="Default" />
             </div>
             <div>
-              <label className="text-[#1662A6] my-2 block">Fees Amount</label>
+              <label className="text-[#1662A6] my-4 block text-base font-normal">
+                Fees Amount
+              </label>
               <Input placeholder="NUM" />
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="text-[#1662A6] my-2 block">Fees Name</label>
+              <label className="text-[#1662A6] my-4 block text-base font-normal">
+                Fees Name
+              </label>
               <Input placeholder="Default" />
             </div>
             <div>
-              <label className="text-[#1662A6] my-2 block">Fees Amount</label>
+              <label className="text-[#1662A6] my-4 block text-base font-normal">
+                Fees Amount
+              </label>
               <Input placeholder="NUM" />
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="text-[#1662A6] my-2 block">Fees Name</label>
+              <label className="text-[#1662A6] my-4 block text-base font-normal">
+                Fees Name
+              </label>
               <Input placeholder="Default" />
             </div>
             <div>
-              <label className="text-[#1662A6] my-2 block">Fees Amount</label>
+              <label className="text-[#1662A6] my-4 block text-base font-normal">
+                Fees Amount
+              </label>
               <Input placeholder="NUM" />
             </div>
           </div>
         </div>
 
-        <div className="col-span-5">
-          <Card className="relative">
+        <div className="col-span-4 pb-10 flex flex-end justify-end">
+          <div className="relative w-full">
             <div className="absolute top-0 right-0 w-full h-full"></div>
 
-            <h3 className="text-[#1662A6] mb-4">Total Fees Amount</h3>
-            <div className="relative bg-[#E6F0F6] p-5 rounded-2xl shadow-md border overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-16 bg-gradient-to-br from-white to-[#BFD9EA] rounded-bl-full opacity-50"></div>
+            <h3 className="text-[#1662A6] mb-4 text-base font-normal">
+              Total Fees Amount
+            </h3>
 
-              <Table
-                columns={columns}
-                dataSource={data}
-                pagination={false}
-                size="small"
-                className="bg-transparent"
-              />
+            <div className="relative bg-[#e6f0f6] p-5 rounded-2xl shadow-lg overflow-hidden h-[364px] flex flex-col justify-between">
+              <div>
+                <div className="absolute top-0 right-0 w-24 h-16 bg-gradient-to-br from-white to-[#b2cde2] rounded-bl-full opacity-50"></div>
 
-              <div className="absolute bottom-0 left-0 w-24 h-16 bg-gradient-to-tl from-white to-[#BFD9EA] rounded-tr-full z-0 opacity-50"></div>
+                <table className="w-full text-left border-separate border-spacing-y-2">
+                  <thead>
+                    <tr className="bg-[#FFFFFF]">
+                      <th className="py-3 px-4 text-sm font-semibold text-[#868A9A]">
+                        No
+                      </th>
+                      <th className="py-3 px-4 text-sm font-semibold text-[#868A9A]">
+                        Fees Name
+                      </th>
+                      <th className="py-3 px-4 text-sm font-semibold text-[#868A9A]">
+                        Fees Amount
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-[#1662A6]">
+                    {data?.map((data) => (
+                      <tr key={data.key} className="bg-transparent">
+                        <td className="py-3 px-4 text-sm font-medium text-[#868A9A]">
+                          {data.no}
+                        </td>
+                        <td className="py-3 px-4 text-sm font-medium text-[#868A9A]">
+                          {data.name}
+                        </td>
+                        <td className="py-3 px-4 text-sm font-medium text-[#868A9A]">
+                          {data.amount}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+
+                <div className="absolute bottom-0 left-0 w-24 h-16 bg-gradient-to-tl from-white to-[#b2cde2] rounded-tr-full z-0 opacity-50"></div>
+              </div>
+
+              <div className="flex justify-between items-center mt-4 text-[#1662A6] font-medium">
+                <span className="text-base font-normal z-20">
+                  Total Fees Amount
+                </span>
+                <input
+                  className="w-40 text-center text-xs font-extralight bg-white border border-gray-300 rounded-lg px-2 py-2 shadow-sm focus:outline-none"
+                  placeholder="NUM Total"
+                />
+              </div>
             </div>
-
-            <div className="flex justify-between mt-4 text-[#1662A6]">
-              <span>Total Fees Amount</span>
-              <Input className="w-24 text-right" placeholder="NUM Total" />
-            </div>
-          </Card>
+          </div>
         </div>
       </div>
+
+      <div className="border w-full border-dashed border-[#ffe4a7]" />
+      <FooterButton />
     </div>
   );
 };

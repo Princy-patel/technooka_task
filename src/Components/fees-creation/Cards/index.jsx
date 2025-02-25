@@ -1,6 +1,6 @@
 import React from "react";
-import { Card, Badge, Tag } from "antd";
-import { MoneyCollectFilled } from "@ant-design/icons";
+import { Card, Tag } from "antd";
+import { RiGraduationCapFill } from "react-icons/ri";
 
 const colleges = [
   {
@@ -19,17 +19,20 @@ const colleges = [
     color: "#1662A6",
   },
 ];
-
 const CollegeCard = ({ college }) => {
   return (
-    <Card className="relative w-[300px] h-[140px] flex flex-col items-center justify-center rounded-lg shadow-md overflow-hidden bg-white">
+    <Card
+      className={`relative w-[300px] h-[140px] flex flex-col items-center justify-center rounded-lg shadow-md overflow-hidden bg-white ${
+        college.primary ? "bg-[#e5f3fa]" : "bg-white"
+      }`}
+    >
       <div
-        className="absolute top-0 right-0 w-full h-full"
+        className="absolute top-0 right-0 w-full h-full opacity-60"
         style={{
           background: college.primary
-            ? "radial-gradient(circle at top right, #1662A6 10%, transparent 60%)"
-            : "radial-gradient(circle at top right, #1662A6 10%, transparent 60%)",
-          opacity: 0.6,
+            ? "radial-gradient(farthest-corner at 80% 90%, #BFD9EA 30%, transparent 100%)"
+            : "radial-gradient(farthest-corner at 80% 10%, #BFD9EA -10%, transparent 50%)",
+          clipPath: "ellipse(30% 50% at 80% 0%)",
         }}
       ></div>
 
@@ -42,12 +45,18 @@ const CollegeCard = ({ college }) => {
       <div className="flex items-center gap-2 z-10">
         <div
           className={`py-4 px-5 rounded-full ${
-            college.primary ? "bg-blue-600 text-white" : "bg-yellow-100"
+            college.primary ? "bg-[#3384b9] text-white" : "bg-[#fff5d9]"
           }`}
         >
-          <MoneyCollectFilled className="text-2xl" />
+          <RiGraduationCapFill
+            className={`text-2xl ${
+              college.primary ? "text-white" : "text-[#ffb100]"
+            }`}
+          />
         </div>
-        <p className="text-lg font-semibold text-gray-800">{college.name}</p>
+        <p className="text-base font-semibold text-[#4F6892]  w-[109px]">
+          {college.name}
+        </p>
       </div>
     </Card>
   );
@@ -56,7 +65,7 @@ const CollegeCard = ({ college }) => {
 const CollegeList = () => {
   return (
     <div className="py-6">
-      <h2 className="text-2xl font-bold text-[#0065A7] mb-4">
+      <h2 className="text-xl font-medium text-[#0065A7] mb-4">
         Program Run in Colleges
       </h2>
       <div className="flex gap-4">
